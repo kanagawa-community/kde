@@ -1,0 +1,11 @@
+name: Files
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  files:
+    uses: kanagawa-community/.github/.github/workflows/check-files.yml@main

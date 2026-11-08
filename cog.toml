@@ -1,0 +1,91 @@
+# Replace `kde` below with the name of this repository.
+#
+# Versions live in git tags only. Maintainers release with scripts/release.sh in
+# the organization .github repository, which opens a pull request that updates
+# CHANGELOG.md. Merging it tags the merge commit and publishes the release.
+
+# ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~   General ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
+
+# Type: `boolean: false` (optional)
+# Whether to only consider commits since the latest SemVer tag. Without any tag
+# `cog bump` fails with "unable to get any tag", so scripts/release.sh releases a
+# port's first version as 1.0.0 without asking cog.
+from_latest_tag = true
+
+# Type: `string` (optional)
+# Set a tag prefix value for cocogitto. For instance if you have a `v` as a tag
+# prefix, cocogitto will generate version starting with `v` and commands like
+# `cog changelog` will pick only those versions.
+tag_prefix = ""
+
+# Type: `Array<String>` (optional)
+# A list of glob patterns to allow bumping only on matching branches.
+branch_whitelist = ["main"]
+
+# Type: `boolean: false` (optional)
+# Whether to ignore or to lint merge commits.
+ignore_merge_commits = true
+
+
+# ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~  Bump Config ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
+
+# Type: `Array<String>` (optional)
+# An array of command to execute before a version bump.
+pre_bump_hooks = []
+
+# Type: `Array<String>` (optional)
+# An array of command to execute after a version bump. Left empty: `cog bump` is
+# only used to work out the next version, never to tag or push.
+post_bump_hooks = []
+
+# Type: `boolean: false` (optional)
+# Disable changelog generation when bumping. scripts/release.sh writes
+# CHANGELOG.md with `cog changelog` instead, in a pull request.
+disable_changelog = true
+
+# Type: `boolean: false` (optional)
+# Cocogitto will not create a bump commit and will instead tag the latest commit.
+disable_bump_commit = true
+
+# Type: `Hashmap<String, BumpProfile>` (optional)
+# Add additional pre-bump and post-bump hooks profile. a profile can be used with
+# the `cog bump --hook-profile <profile_name>` flag.
+[bump_profiles]
+
+
+# ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~  Commit Types ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
+# Type: `Hashmap<String, CommitType>` (optional)
+# Extend the allowed commit types, creating a new cog commit command, and allowing
+# generation of changelog entries for the given type. Can also be used to override
+# the default commit types.
+[commit_types]
+chore = { changelog_title = "Misc", omit_from_changelog = true }
+
+
+# ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~   Changelog ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~ ~~
+[changelog]
+# Type: `string: "default"` (optional)
+# Name of the builtin template to use for changelog generation or path to a custom
+# template. Note that remote, repository and owner are mandatory if the `"remote"`
+# built-in template us used or if your custom template make use of those variables.
+#
+# Built-in templates : `default`, `remote`, `full_hash`
+template = "remote"
+
+# Type: `string` (optional)
+# Domain name of the git platform hosting the repository, used for Markdown link
+# generation in changelogs. when provided repository and owner are also required.
+remote = "github.com"
+
+# Type: `string` (optional)
+# Name of the repository on the remote git platform.
+repository = "kde"
+
+# Type: `string` (optional)
+# Owner of the repository on the remote git platform.
+owner = "kanagawa-community"
+
+# Type: `Array<Author>` (optional)
+# A list of commit authors with their git signature and git platform username
+# to generate Markdown links in changelogs.
+authors = []

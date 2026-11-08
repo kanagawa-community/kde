@@ -1,0 +1,12 @@
+name: Commits
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  conventional-commits:
+    uses: kanagawa-community/.github/.github/workflows/check-commits.yml@main
