@@ -70,8 +70,7 @@ Two KDE details the generator relies on:
   background, point `ConfigFile` in its `metadata.desktop` at the preset, and run
   `./test.sh` there.
 
-To try a change, copy the five folders into `~/.local/share` as the README shows
-and apply them with `plasma-apply-colorscheme`, `plasma-apply-desktoptheme` or
+To try a change, run `./install.sh` and apply the result with `plasma-apply-colorscheme`, `plasma-apply-desktoptheme` or
 `plasma-apply-lookandfeel`. Check Dolphin, System Settings, the panel, a popup and
 a tooltip.
 
