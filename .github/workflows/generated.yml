@@ -1,0 +1,24 @@
+name: Generated
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # Fails when committed theme files differ from what scripts/generate.py writes from the
+  # shared palette. wallpapers.py is left out: it needs the network.
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: kanagawa-community/.github
+          path: .palette
+      - run: python3 scripts/generate.py .palette/palette.json
+      - run: |
+          changes=$(git status --porcelain -- . ':!.palette')
+          echo "$changes"
+          test -z "$changes"
