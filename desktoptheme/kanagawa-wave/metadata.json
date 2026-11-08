@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "Kanagawa Wave Plasma style",
+    "Id": "kanagawa-wave",
+    "License": "MIT",
+    "Name": "Kanagawa Wave",
+    "Website": "https://github.com/kanagawa-community/kde"
+  },
+  "X-Plasma-API": "5.0"
+}

@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "Kanagawa Dragon Plasma style",
+    "Id": "kanagawa-dragon",
+    "License": "MIT",
+    "Name": "Kanagawa Dragon",
+    "Website": "https://github.com/kanagawa-community/kde"
+  },
+  "X-Plasma-API": "5.0"
+}

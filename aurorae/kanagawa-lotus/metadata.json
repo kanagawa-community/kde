@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "Kanagawa Lotus window decoration",
+    "Id": "kanagawa-lotus",
+    "License": "MIT",
+    "Name": "Kanagawa Lotus",
+    "Website": "https://github.com/kanagawa-community/kde"
+  },
+  "KPackageStructure": "KWin/Aurorae"
+}
