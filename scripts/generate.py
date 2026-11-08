@@ -13,6 +13,43 @@ import aurorae  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 VARIANTS = ["wave", "dragon", "lotus"]
+# SilentSDDM preset per variant: (template, background wallpaper, overrides). The dark
+# template is Dragon's layout: a large clock top right and the form on the right of the
+# crest wallpaper, which leaves that side black, so the art stays sharp under light text.
+# Lotus centers the form. Overrides are {section: {key: value}}, with @role@ markers as
+# in the templates. Wave's print is paler: it is darkened and blurred under the form, the
+# clock and date are dark on the sky, the message is orange so it stands out from the
+# blue water, and the toolbar, over the water, keeps light text.
+WAVE_TOOLBAR = {"content-color": '"@ui.fg@"'}
+SDDM = {
+    "wave": ("dark", "kanagawa-wave-great-wave-dim", {
+        "LockScreen": {"brightness": "-0.15"},
+        "LockScreen.Clock": {"color": '"@ui.bg_m1@"'},
+        "LockScreen.Date": {"color": '"@ui.bg_m1@"'},
+        "LockScreen.Message": {"position": '"bottom-center"', "align": '"center"', "color": '"@diag.warning@"'},
+        "LoginScreen": {"blur": "24", "brightness": "-0.25"},
+        **{f"LoginScreen.MenuArea.{m}": WAVE_TOOLBAR for m in ("Session", "Layout", "Keyboard", "Power")},
+    }),
+    "dragon": ("dark", "kanagawa-dragon-great-wave-crest", {}),
+    "lotus": ("light", "hokusai-great-wave-restored", {}),
+}
+
+
+def override(text, sections):
+    """Set `key = value` in each [section] of an INI text; every override must hit a key."""
+    out, section, left = [], None, {(sec, key) for sec, keys in sections.items() for key in keys}
+    for line in text.splitlines(keepends=True):
+        if line.startswith("["):
+            section = line.strip()[1:-1]
+        key = line.split("=")[0].strip()
+        if "=" in line and key in sections.get(section, {}):
+            line = f"{key} = {sections[section][key]}\n"
+            left.discard((section, key))
+        out.append(line)
+    if left:
+        sys.exit(f"SDDM overrides match no key: {sorted(left)}")
+    return "".join(out)
+
 
 # KDE color set -> (BackgroundNormal, BackgroundAlternate, ForegroundNormal, ForegroundInactive)
 SETS = {
@@ -158,8 +195,10 @@ def main():
 
         # SilentSDDM preset; the @role@ markers in the template are palette roles.
         hexes = {role: aurorae.hexify(rgb) for role, rgb in r.items()}
-        sddm = re.sub(r"@([A-Za-z_.0-9]+)@", lambda m: {"variant": v, "Variant": v.capitalize()}.get(m[1]) or hexes[m[1]],
-                      (ROOT / "scripts" / "sddm.conf.in").read_text())
+        template, background, overrides = SDDM[v]
+        extra = {"variant": v, "Variant": v.capitalize(), "background": background}
+        sddm = override((ROOT / "scripts" / f"sddm-{template}.conf.in").read_text(), overrides)
+        sddm = re.sub(r"@([A-Za-z_.0-9]+)@", lambda m: extra.get(m[1]) or hexes[m[1]], sddm)
         write(ROOT / "sddm" / f"kanagawa-{v}.conf", sddm)
 
         deco = ROOT / "aurorae" / plasma_id

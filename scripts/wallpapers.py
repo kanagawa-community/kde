@@ -112,8 +112,13 @@ CIRCLE_CROP, CIRCLE_SIZE = "5440x5440+511+195", 800
 # "Side" wallpaper: a large circle left of center,
 # leaving the right of the screen empty for widgets or the SilentSDDM login form.
 SIDE_SIZE, SIDE_CENTER = 1500, (1150, 1080)
-# "Dim" wallpaper, also the login screen background: the restored print under a light
-# tint of ui.bg, DIM percent.
+# "Crest" wallpaper, the Dragon SilentSDDM login background: the big wave alone, its sky
+# on true black, in the bottom-left corner, so the login form fits on the black at the
+# right. CREST_CROP ("WxH+X+Y" of the print) is drawn CREST_HEIGHT px tall; CREST_ERASE
+# is a polygon of the print painted as sky to drop Fuji and the far boats.
+CREST_CROP, CREST_HEIGHT = "7300x4560+60+320", 1530
+CREST_ERASE = "4560,3300 8242,2400 8242,5640 5700,4880 4600,3700"
+# "Dim" wallpaper: the restored print under a light tint of ui.bg, DIM percent.
 DIM = 35
 # #000000 is not a palette color; OLED wallpapers use it because OLED pixels only switch
 # off at true black.
@@ -226,6 +231,11 @@ def main():
 
         discs = {mirror: disc(CIRCLE_SIZE, mirror) for mirror in ("", "-mirrored")}
         side = disc(SIDE_SIZE, "")
+        crest_alpha = Path(tmp) / "crest-alpha.png"
+        magick(alpha, "-fill", "black", "-draw", f"polygon {CREST_ERASE}", crest_alpha)
+        cw, ch, *_ = map(int, CREST_CROP.replace("x", "+").split("+"))
+        crest = cutout(src, crest_alpha, ["-crop", CREST_CROP, "+repage", "-resize",
+                                          f"{round(CREST_HEIGHT * cw / ch)}x{CREST_HEIGHT}!"])
         authors = ["Katsushika Hokusai", "Kanagawa Community contributors"]
         for v in VARIANTS:
             r, cap = roles(variants[v]), v.capitalize()
@@ -249,6 +259,16 @@ def main():
                 license_,
                 [*cutout(src, alpha, ["-crop", crop, "+repage", "-resize", f"{SIZE}!"]),
                  "-background", OLED, "-alpha", "remove", "-alpha", "off"],
+            )
+            package(
+                f"kanagawa-{v}-great-wave-crest",
+                f"Kanagawa {cap} Great Wave crest",
+                f"The crest of the Great Wave by Katsushika Hokusai, bottom left on true black.",
+                authors,
+                page,
+                license_,
+                ["-size", SIZE, f"xc:{OLED}", "(", *crest, ")", "-gravity", "southwest", "-compose", "Over",
+                 "-composite"],
             )
             package(
                 f"kanagawa-{v}-great-wave-dim",

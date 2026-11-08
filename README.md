@@ -123,14 +123,19 @@ desktop, then **Configure Desktop and Wallpaper**).
 
 `sddm/` has a preset for [SilentSDDM](https://github.com/uiriansan/SilentSDDM). With
 SilentSDDM installed, copy the preset and its background into the theme, then select
-the preset in its `metadata.desktop`:
+the preset in its `metadata.desktop`. Dragon puts the login form on the black right
+of the Crest wallpaper, Wave puts it on the right of the blurred Dim wallpaper, and
+Lotus centers it on the blurred restored Great Wave:
 
 ```sh
 theme=/usr/share/sddm/themes/silent
-sudo install -m 644 sddm/kanagawa-wave.conf "$theme/configs/"
-sudo install -m 644 wallpapers/kanagawa-wave-great-wave-dim/contents/images/3840x2160.jpg \
-  "$theme/backgrounds/kanagawa-wave-great-wave-dim.jpg"
-sudo sed -i 's|^ConfigFile=.*|ConfigFile=configs/kanagawa-wave.conf|' "$theme/metadata.desktop"
+variant=wave background=kanagawa-wave-great-wave-dim
+# or: variant=dragon background=kanagawa-dragon-great-wave-crest
+# or: variant=lotus background=hokusai-great-wave-restored
+sudo install -m 644 "sddm/kanagawa-$variant.conf" "$theme/configs/"
+sudo install -m 644 "wallpapers/$background/contents/images/3840x2160.jpg" \
+  "$theme/backgrounds/$background.jpg"
+sudo sed -i "s|^ConfigFile=.*|ConfigFile=configs/kanagawa-$variant.conf|" "$theme/metadata.desktop"
 ```
 
 To preview it without logging out, run `./test.sh` from a copy of the theme folder.
@@ -165,7 +170,8 @@ Each variant also has versions of the restored Great Wave in its palette:
 | Paper     | inverted, a `ui.fg_dim` wave on `ui.bg`                                                                                                                         |
 | OLED      | the print's own colors; the sky, title and signature replaced by true black (`#000000`)                                                                         |
 | Circle    | the wave in a circle, as printed and mirrored, its sky cut away, centered on one of `term.black` to `term.white`, or on true black (`#000000`) for OLED screens |
-| Dim       | the full print under a 35% tint of `ui.bg`; also the login screen background                                                                                    |
+| Dim       | the full print under a 35% tint of `ui.bg`; the Wave login screen background                                                                                    |
+| Crest     | the big wave alone in the bottom-left corner, its sky cut away, on true black (`#000000`); the Dragon login screen background                                   |
 | Side      | the wave in a large circle on the left of `ui.bg_m3`, leaving the right empty                                                                                   |
 
 ## Palette
