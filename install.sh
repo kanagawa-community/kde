@@ -20,7 +20,31 @@ items() {
   printf "aurorae/kanagawa-%s\t%s\n" "$1" "$data/aurorae/themes"
   for w in wallpapers/kanagawa-"$1"-*; do printf "%s\t%s\n" "$w" "$data/wallpapers"; done
 }
+# The global theme selects the Kanagawa cursors and icons, so their ports come along, with
+# Konsole and Kate. Each runs its own install.sh with the same variants.
+PORTS="cursors icons konsole kate"
+port() {
+  local p="$1"
+  shift
+  # A sibling checkout of the port, as in the organization's workspace, wins over a clone.
+  if [[ -x "../$p/install.sh" ]] && git -C "../$p" remote get-url origin 2>/dev/null | grep -q "kanagawa-community/$p"; then
+    "../$p/install.sh" "$@"
+    return
+  fi
+  # Only the themes are needed, and uninstalling needs none: skip the port's sources.
+  git clone -q --depth 1 --filter=blob:none --sparse "https://github.com/kanagawa-community/$p" "$tmp/$p"
+  [[ "${1:-}" == --uninstall ]] || git -C "$tmp/$p" sparse-checkout set themes
+  "$tmp/$p/install.sh" "$@"
+}
 after() {
+  local p variants="${selected/ shared/}"
+  tmp="$(mktemp -d)"
+  trap 'rm -rf "$tmp"' EXIT
+  for p in $PORTS; do
+    echo "$p:"
+    # shellcheck disable=SC2086 # word-split the variant list on purpose
+    if [[ "$uninstall" == true ]]; then port "$p" --uninstall $variants; else port "$p" $variants; fi
+  done
   [[ "$uninstall" == false ]] || return 0
   echo "Apply a variant with: plasma-apply-lookandfeel -a org.kanagawa-community.wave"
 }
