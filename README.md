@@ -56,8 +56,9 @@
 - KDE Plasma 6, tested on 6.8. The window decoration uses KWin's
   `org.kde.kwin.aurorae.v2` plugin.
 - For the login screen: [SilentSDDM](https://github.com/uiriansan/SilentSDDM), and
-  optionally Monaspace Krypton NF installed system-wide (SilentSDDM falls back to
-  its default font without it).
+  optionally Monaspace Krypton NF installed system-wide, from the `monaspace-nerdfonts`
+  download of [Monaspace](https://github.com/githubnext/monaspace/releases/latest)
+  (SilentSDDM falls back to its default font without it).
 
 ## Installation
 
