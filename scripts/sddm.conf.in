@@ -1,7 +1,7 @@
 # Kanagawa @Variant@ preset for SilentSDDM (https://github.com/uiriansan/SilentSDDM), written by
 # scripts/generate.py from scripts/sddm.conf.in. Colors are palette roles.
-# The background is the "dim" Great Wave wallpaper: the full restored print under ui.bg,
-# so light text reads over its sky. The lock screen keeps it sharp; the login screen
+# The background is the "dim" Great Wave wallpaper: the full restored print under a light
+# tint of ui.bg. The lock screen keeps it sharp; the login screen
 # blurs it under dark panels.
 # Fonts are Monaspace Krypton NF; without it SilentSDDM falls back to its default font.
 # The message has no Nerd Font glyph, so the fallback font shows it whole.

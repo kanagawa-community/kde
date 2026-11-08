@@ -56,8 +56,9 @@
 - KDE Plasma 6, tested on 6.8. The window decoration uses KWin's
   `org.kde.kwin.aurorae.v2` plugin.
 - For the login screen: [SilentSDDM](https://github.com/uiriansan/SilentSDDM), and
-  optionally Monaspace Krypton NF installed system-wide (SilentSDDM falls back to
-  its default font without it).
+  optionally Monaspace Krypton NF installed system-wide, from the `monaspace-nerdfonts`
+  download of [Monaspace](https://github.com/githubnext/monaspace/releases/latest)
+  (SilentSDDM falls back to its default font without it).
 
 ## Installation
 
@@ -157,9 +158,9 @@ Each variant also has versions of the restored Great Wave in its palette:
 | Ink       | `ui.fg` lines on `ui.bg`                                                                                                                                        |
 | Blue      | inverted, a `syn.fun` wave on `ui.bg`                                                                                                                           |
 | Paper     | inverted, a `ui.fg_dim` wave on `ui.bg`                                                                                                                         |
-| OLED      | the print's own colors; the sky, title and signature replaced by `ui.bg_m3`                                                                                     |
+| OLED      | the print's own colors; the sky, title and signature replaced by true black (`#000000`)                                                                         |
 | Circle    | the wave in a circle, as printed and mirrored, its sky cut away, centered on one of `term.black` to `term.white`, or on true black (`#000000`) for OLED screens |
-| Dim       | the full print under `ui.bg` at 70%, so light text reads over it; also the login screen background                                                              |
+| Dim       | the full print under a 35% tint of `ui.bg`; also the login screen background                                                                                    |
 | Side      | the wave in a large circle on the left of `ui.bg_m3`, leaving the right empty                                                                                   |
 
 ## Palette
