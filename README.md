@@ -56,10 +56,6 @@
 - `git`, which the install script uses to fetch the related ports.
 - KDE Plasma 6, tested on 6.8. The window decoration uses KWin's
   `org.kde.kwin.aurorae.v2` plugin.
-- For the login screen: [SilentSDDM](https://github.com/uiriansan/SilentSDDM), and
-  optionally Monaspace Krypton NF installed system-wide, from the `monaspace-nerdfonts`
-  download of [Monaspace](https://github.com/githubnext/monaspace/releases/latest)
-  (SilentSDDM falls back to its default font without it).
 
 ## Installation
 
@@ -81,8 +77,7 @@ cd kde
 `./install.sh` installs all three variants. Name the ones you want instead, for
 example `./install.sh dragon lotus`. Run it again after `git pull` to update.
 `./uninstall.sh` takes the same names and removes them, from the related ports too. The
-Hokusai prints belong to every variant, so they are removed only when all three are. The login screen preset needs root, so it stays a
-manual step (see [Login screen](#login-screen)).
+Hokusai prints belong to every variant, so they are removed only when all three are.
 
 ## Usage
 
@@ -119,26 +114,7 @@ To apply only one part, pick it in System Settings, or run
 Pick any of the wallpapers in **Desktop and Wallpaper** (right-click the
 desktop, then **Configure Desktop and Wallpaper**).
 
-### Login screen
-
-`sddm/` has a preset for [SilentSDDM](https://github.com/uiriansan/SilentSDDM). With
-SilentSDDM installed, copy the preset and its background into the theme, then select
-the preset in its `metadata.desktop`. Dragon puts the login form on the black right
-of the Crest wallpaper, Wave puts it on the right of the blurred Dim wallpaper, and
-Lotus centers it on the blurred restored Great Wave:
-
-```sh
-theme=/usr/share/sddm/themes/silent
-variant=wave background=kanagawa-wave-great-wave-dim
-# or: variant=dragon background=kanagawa-dragon-great-wave-crest
-# or: variant=lotus background=hokusai-great-wave-restored
-sudo install -m 644 "sddm/kanagawa-$variant.conf" "$theme/configs/"
-sudo install -m 644 "wallpapers/$background/contents/images/3840x2160.jpg" \
-  "$theme/backgrounds/$background.jpg"
-sudo sed -i "s|^ConfigFile=.*|ConfigFile=configs/kanagawa-$variant.conf|" "$theme/metadata.desktop"
-```
-
-To preview it without logging out, run `./test.sh` from a copy of the theme folder.
+For the login screen, see the [SilentSDDM](https://github.com/kanagawa-community/silent-sddm) port.
 
 The install script also installs the Konsole and Kate themes. Pick them in each
 application's settings, as their READMEs show.
