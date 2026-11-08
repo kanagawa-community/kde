@@ -62,8 +62,7 @@
 ## Installation
 
 Clone the repository and run the install script. It copies the color schemes, Plasma
-styles, window decorations, global themes and wallpapers of all three variants into
-`~/.local/share`:
+styles, window decorations, global themes and wallpapers into `~/.local/share`:
 
 ```sh
 git clone https://github.com/kanagawa-community/kde
@@ -71,9 +70,11 @@ cd kde
 ./install.sh
 ```
 
-Run it again after `git pull` to update. `./uninstall.sh` removes exactly what it
-installed. The login screen preset needs root, so it stays a manual step (see
-[Login screen](#login-screen)).
+`./install.sh` installs all three variants. Name the ones you want instead, for
+example `./install.sh dragon lotus`. Run it again after `git pull` to update.
+`./uninstall.sh` takes the same names and removes them. The Hokusai prints belong to every variant, so they
+are removed only when all three are. The login screen preset needs root, so it stays a
+manual step (see [Login screen](#login-screen)).
 
 ## Usage
 
