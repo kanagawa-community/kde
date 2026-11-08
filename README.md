@@ -61,18 +61,19 @@
 
 ## Installation
 
-Clone the repository and copy the five folders into your data folder:
+Clone the repository and run the install script. It copies the color schemes, Plasma
+styles, window decorations, global themes and wallpapers of all three variants into
+`~/.local/share`:
 
 ```sh
 git clone https://github.com/kanagawa-community/kde
 cd kde
-mkdir -p ~/.local/share/{color-schemes,plasma/desktoptheme,plasma/look-and-feel,aurorae/themes,wallpapers}
-cp color-schemes/* ~/.local/share/color-schemes/
-cp -r aurorae/* ~/.local/share/aurorae/themes/
-cp -r desktoptheme/* ~/.local/share/plasma/desktoptheme/
-cp -r look-and-feel/* ~/.local/share/plasma/look-and-feel/
-cp -r wallpapers/* ~/.local/share/wallpapers/
+./install.sh
 ```
+
+Run it again after `git pull` to update. `./uninstall.sh` removes exactly what it
+installed. The login screen preset needs root, so it stays a manual step (see
+[Login screen](#login-screen)).
 
 ## Usage
 
