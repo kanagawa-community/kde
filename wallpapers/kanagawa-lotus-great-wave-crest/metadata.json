@@ -1,0 +1,18 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      },
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "The crest of the Great Wave by Katsushika Hokusai, bottom left on true black.",
+    "Id": "kanagawa-lotus-great-wave-crest",
+    "License": "Public domain",
+    "Name": "Kanagawa Lotus Great Wave crest",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}
