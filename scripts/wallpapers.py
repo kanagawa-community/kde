@@ -4,7 +4,7 @@
 Downloads public-domain Hokusai prints (The Met's Open Access collection, CC0, and one
 restored scan from Wikimedia Commons), crops each to its printed area and to 16:9, and
 writes 3840x2160 JPEGs. It also writes palette versions of The Great Wave per variant:
-monochrome ones, and an "OLED" one with the wave on a near-black background.
+monochrome ones, and an "OLED" one with the wave on true black.
 Needs ImageMagick 7 and network access.
 
 Usage: scripts/wallpapers.py [path/to/palette.json]   (default: ../.github/palette.json)
@@ -106,15 +106,18 @@ OLED_ERASE = [(68, 42, 124, 229), (0, 118, 70, 250)]
 # px outside SPRAY (x0, y0, x1, y1), where Hokusai's spray dots are.
 SPECK, SPECK_OUTSIDE, SPRAY = 60, 750, (1560, 450, 3420, 1880)
 # Circle wallpapers: the wave, as printed and mirrored, cut into a circle ("WxH+X+Y" of the print),
-# centered on each ANSI color and on true black for OLED screens. #000000 is not a
-# palette color; it is there because OLED pixels only switch off at true black.
+# centered on each ANSI color and on true black for OLED screens. OLED is the same
+# black as the OLED wallpaper.
 CIRCLE_CROP, CIRCLE_SIZE = "5440x5440+511+195", 800
 # "Side" wallpaper: a large circle left of center,
 # leaving the right of the screen empty for widgets or the SilentSDDM login form.
 SIDE_SIZE, SIDE_CENTER = 1500, (1150, 1080)
-# "Dim" wallpaper, also the login screen background: the restored print under ui.bg at
-# DIM percent, so light text reads over its sky.
-DIM = 70
+# "Dim" wallpaper, also the login screen background: the restored print under a light
+# tint of ui.bg, DIM percent.
+DIM = 35
+# #000000 is not a palette color; OLED wallpapers use it because OLED pixels only switch
+# off at true black.
+OLED = "#000000"
 ANSI = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 # Pixels on the sky's edge stay only if they look like the print: light paper (foam),
 # blue (wave) or warm yellow (boats). Lab channels scaled to 0..1; sampled from the print.
@@ -240,12 +243,12 @@ def main():
             package(
                 f"kanagawa-{v}-great-wave-oled",
                 f"Kanagawa {cap} Great Wave (OLED)",
-                f"The Great Wave by Katsushika Hokusai, its sky replaced with Kanagawa {cap} ui.bg_m3.",
+                f"The Great Wave by Katsushika Hokusai, its sky replaced with true black.",
                 authors,
                 page,
                 license_,
                 [*cutout(src, alpha, ["-crop", crop, "+repage", "-resize", f"{SIZE}!"]),
-                 "-background", hexify(r["ui.bg_m3"]), "-alpha", "remove", "-alpha", "off"],
+                 "-background", OLED, "-alpha", "remove", "-alpha", "off"],
             )
             package(
                 f"kanagawa-{v}-great-wave-dim",
@@ -269,7 +272,7 @@ def main():
                  "-composite"],
             )
             for mirror, art in discs.items():
-                for name, bg in [*((c, hexify(r[f"term.{c}"])) for c in ANSI), ("oled", "#000000")]:
+                for name, bg in [*((c, hexify(r[f"term.{c}"])) for c in ANSI), ("oled", OLED)]:
                     package(
                         f"kanagawa-{v}-great-wave-circle{mirror}-{name}",
                         f"Kanagawa {cap} Great Wave circle{mirror.replace('-', ', ')} ({name})",
