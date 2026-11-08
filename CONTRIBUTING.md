@@ -30,10 +30,8 @@ To read the colors from a script, use the machine-readable
 
 ## Working on this port
 
-`color-schemes/`, `desktoptheme/`, `aurorae/`, `look-and-feel/` and `sddm/` are generated
-(`aurorae/` with the help of `scripts/aurorae.py`, `sddm/` from the templates
-`scripts/sddm-dark.conf.in` and `scripts/sddm-light.conf.in`, where `@role@` markers stand for palette roles). Do not edit
-them by hand. `scripts/generate.py` reads the shared `palette.json` from a sibling
+`color-schemes/`, `desktoptheme/`, `aurorae/` and `look-and-feel/` are generated
+(`aurorae/` with the help of `scripts/aurorae.py`). Do not edit them by hand. `scripts/generate.py` reads the shared `palette.json` from a sibling
 checkout of the [.github repository](https://github.com/kanagawa-community/.github)
 (or from a path given as its first argument) and maps each KDE color to a palette
 role. The README lists the mapping. After changing the mapping, regenerate and
@@ -65,10 +63,6 @@ Two KDE details the generator relies on:
   and lists SVG themes under the `org.kde.kwin.aurorae.v2` plugin. The global theme sets
   that plugin; with the older `org.kde.kwin.aurorae` the decoration still draws, but
   System Settings does not show it as selected.
-- SDDM runs as its own user, so the login preset can only use fonts installed system-wide.
-  To try the preset, copy SilentSDDM's theme folder somewhere, add the preset and its
-  background, point `ConfigFile` in its `metadata.desktop` at the preset, and run
-  `./test.sh` there.
 
 To try a change, run `./install.sh` and apply the result with `plasma-apply-colorscheme`, `plasma-apply-desktoptheme` or
 `plasma-apply-lookandfeel`. Check Dolphin, System Settings, the panel, a popup and

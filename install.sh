@@ -7,7 +7,6 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 data="${XDG_DATA_HOME:-$HOME/.local/share}"
 cap() { case "$1" in wave) echo Wave ;; dragon) echo Dragon ;; lotus) echo Lotus ;; esac; }
-# The SilentSDDM login preset needs root and stays a manual step (see the README).
 # Print "<file in this repository>\t<folder it goes in>" for one variant.
 items() {
   if [[ "$1" == shared ]]; then
