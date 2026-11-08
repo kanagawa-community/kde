@@ -1,0 +1,18 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      },
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "The Great Wave by Katsushika Hokusai in a large circle on the left, on Kanagawa Lotus ui.bg_m3.",
+    "Id": "kanagawa-lotus-great-wave-side",
+    "License": "Public domain",
+    "Name": "Kanagawa Lotus Great Wave side",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

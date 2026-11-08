@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      }
+    ],
+    "Description": "Katsushika Hokusai, The Great Wave off Kanagawa, restored, from Thirty-six Views of Mount Fuji. Public domain.",
+    "Id": "hokusai-great-wave-restored",
+    "License": "Public domain",
+    "Name": "The Great Wave off Kanagawa, restored (Hokusai)",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

@@ -1,0 +1,18 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      },
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "The Great Wave by Katsushika Hokusai, mirrored in a circle on Kanagawa Wave term.blue.",
+    "Id": "kanagawa-wave-great-wave-circle-mirrored-blue",
+    "License": "Public domain",
+    "Name": "Kanagawa Wave Great Wave circle, mirrored (blue)",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

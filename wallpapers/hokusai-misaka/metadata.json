@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      }
+    ],
+    "Description": "Katsushika Hokusai, Reflection in Lake at Misaka, from Thirty-six Views of Mount Fuji. CC0-1.0.",
+    "Id": "hokusai-misaka",
+    "License": "CC0-1.0",
+    "Name": "Reflection in Lake at Misaka (Hokusai)",
+    "Website": "https://www.metmuseum.org/art/collection/search/36495"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

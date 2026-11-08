@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      }
+    ],
+    "Description": "Katsushika Hokusai, Umezawa Manor in Sagami Province, from Thirty-six Views of Mount Fuji. CC0-1.0.",
+    "Id": "hokusai-umezawa",
+    "License": "CC0-1.0",
+    "Name": "Umezawa Manor in Sagami Province (Hokusai)",
+    "Website": "https://www.metmuseum.org/art/collection/search/36501"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}
