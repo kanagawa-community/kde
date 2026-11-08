@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "Kanagawa Wave global theme",
+    "Id": "org.kanagawa-community.wave",
+    "License": "MIT",
+    "Name": "Kanagawa Wave",
+    "Website": "https://github.com/kanagawa-community/kde"
+  },
+  "KPackageStructure": "Plasma/LookAndFeel"
+}

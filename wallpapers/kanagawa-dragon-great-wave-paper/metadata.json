@@ -1,0 +1,18 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      },
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "The Great Wave by Katsushika Hokusai in Kanagawa Dragon ui.fg_dim.",
+    "Id": "kanagawa-dragon-great-wave-paper",
+    "License": "Public domain",
+    "Name": "Kanagawa Dragon Great Wave (paper)",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

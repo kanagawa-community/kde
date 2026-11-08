@@ -1,0 +1,18 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      },
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "The Great Wave by Katsushika Hokusai, mirrored in a circle on Kanagawa Lotus term.magenta.",
+    "Id": "kanagawa-lotus-great-wave-circle-mirrored-magenta",
+    "License": "Public domain",
+    "Name": "Kanagawa Lotus Great Wave circle, mirrored (magenta)",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

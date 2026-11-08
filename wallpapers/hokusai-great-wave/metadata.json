@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      }
+    ],
+    "Description": "Katsushika Hokusai, The Great Wave off Kanagawa, from Thirty-six Views of Mount Fuji. CC0-1.0.",
+    "Id": "hokusai-great-wave",
+    "License": "CC0-1.0",
+    "Name": "The Great Wave off Kanagawa (Hokusai)",
+    "Website": "https://www.metmuseum.org/art/collection/search/39799"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

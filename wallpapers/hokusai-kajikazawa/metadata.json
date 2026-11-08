@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      }
+    ],
+    "Description": "Katsushika Hokusai, Kajikazawa in Kai Province, from Thirty-six Views of Mount Fuji. CC0-1.0.",
+    "Id": "hokusai-kajikazawa",
+    "License": "CC0-1.0",
+    "Name": "Kajikazawa in Kai Province (Hokusai)",
+    "Website": "https://www.metmuseum.org/art/collection/search/39800"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

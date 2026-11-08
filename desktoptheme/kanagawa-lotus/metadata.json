@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "Kanagawa Lotus Plasma style",
+    "Id": "kanagawa-lotus",
+    "License": "MIT",
+    "Name": "Kanagawa Lotus",
+    "Website": "https://github.com/kanagawa-community/kde"
+  },
+  "X-Plasma-API": "5.0"
+}

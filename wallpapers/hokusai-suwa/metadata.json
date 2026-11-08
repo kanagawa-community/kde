@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      }
+    ],
+    "Description": "Katsushika Hokusai, Lake Suwa in Shinano Province, from Thirty-six Views of Mount Fuji. CC0-1.0.",
+    "Id": "hokusai-suwa",
+    "License": "CC0-1.0",
+    "Name": "Lake Suwa in Shinano Province (Hokusai)",
+    "Website": "https://www.metmuseum.org/art/collection/search/39798"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}

@@ -1,0 +1,18 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Katsushika Hokusai"
+      },
+      {
+        "Name": "Kanagawa Community contributors"
+      }
+    ],
+    "Description": "The Great Wave by Katsushika Hokusai in a circle on Kanagawa Dragon true black.",
+    "Id": "kanagawa-dragon-great-wave-circle-oled",
+    "License": "Public domain",
+    "Name": "Kanagawa Dragon Great Wave circle (oled)",
+    "Website": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg"
+  },
+  "KPackageStructure": "Wallpaper/Images"
+}
