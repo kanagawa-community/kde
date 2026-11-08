@@ -53,6 +53,7 @@
 
 ## Requirements
 
+- `git`, which the install script uses to fetch the related ports.
 - KDE Plasma 6, tested on 6.8. The window decoration uses KWin's
   `org.kde.kwin.aurorae.v2` plugin.
 - For the login screen: [SilentSDDM](https://github.com/uiriansan/SilentSDDM), and
@@ -63,7 +64,13 @@
 ## Installation
 
 Clone the repository and run the install script. It copies the color schemes, Plasma
-styles, window decorations, global themes and wallpapers into `~/.local/share`:
+styles, window decorations, global themes and wallpapers into `~/.local/share`. It also
+installs the related ports, each with its own install script:
+[cursors](https://github.com/kanagawa-community/cursors) and
+[icons](https://github.com/kanagawa-community/icons), which the global theme selects, and
+the [Konsole](https://github.com/kanagawa-community/konsole) and
+[Kate](https://github.com/kanagawa-community/kate) themes. It fetches them with `git`, or
+uses checkouts of them next to this one.
 
 ```sh
 git clone https://github.com/kanagawa-community/kde
@@ -73,8 +80,8 @@ cd kde
 
 `./install.sh` installs all three variants. Name the ones you want instead, for
 example `./install.sh dragon lotus`. Run it again after `git pull` to update.
-`./uninstall.sh` takes the same names and removes them. The Hokusai prints belong to every variant, so they
-are removed only when all three are. The login screen preset needs root, so it stays a
+`./uninstall.sh` takes the same names and removes them, from the related ports too. The
+Hokusai prints belong to every variant, so they are removed only when all three are. The login screen preset needs root, so it stays a
 manual step (see [Login screen](#login-screen)).
 
 ## Usage
@@ -128,10 +135,8 @@ sudo sed -i 's|^ConfigFile=.*|ConfigFile=configs/kanagawa-wave.conf|' "$theme/me
 
 To preview it without logging out, run `./test.sh` from a copy of the theme folder.
 
-For the cursors, install
-[Kanagawa cursors](https://github.com/kanagawa-community/cursors). For the editor, install
-[Kanagawa for Kate](https://github.com/kanagawa-community/kate). For the terminal, install
-[Kanagawa for Konsole](https://github.com/kanagawa-community/konsole).
+The install script also installs the Konsole and Kate themes. Pick them in each
+application's settings, as their READMEs show.
 
 ## Wallpapers
 
